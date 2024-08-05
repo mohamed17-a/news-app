@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "user1",
+      "email": "user1@newsApp.com",
+      "password": "user1p@ss"
+    },
+    {
+      "id": "2",
+      "name": "user2",
+      "email": "user2@newsApp.com",
+      "password": "user2p@ss"
+    },
+    {
+      "id": "3",
+      "name": "Mohamed",
+      "email": "Mohamed@newsApp.com",
+      "password": "user3p@ss"
+    }
+  ]
+}
