@@ -6,9 +6,11 @@ import Navbar from "./Components/shared/Navbar";
 import Footer from "./Components/shared/Footer";
 import NotFound from "./Components/NotFound/NotFound";
 import EntryPage from "./Components/EntryPage/EntryPage";
+import UnAuthorized from "./Components/shared/UnAuthorized";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
-import MustLogin from "./Components/shared/UnAuthorized";
+import ProtectedRoute from "./Components/ProtectedRoute";
+
 function App() {
   return (
     <AuthProvider>
@@ -16,10 +18,15 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<EntryPage />} />
-          <Route path="/home/:id" element={<Home />} />
-          <Route path="/sports/:id" element={<Sports />} />
-          <Route path="/home/undefined" element={<MustLogin />} />
-          <Route path="/sports/undefined" element={<MustLogin />} />
+          <Route
+            path="/home/:id"
+            element={<ProtectedRoute element={<Home />} />}
+          />{" "}
+          <Route
+            path="/sports/:id"
+            element={<ProtectedRoute element={<Sports />} />}
+          />
+          <Route path="/unAuthorized" element={<UnAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

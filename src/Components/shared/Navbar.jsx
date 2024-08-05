@@ -3,8 +3,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 function Navbar() {
   // eslint-disable-next-line no-unused-vars
-  const { signedUser, handlelogin, handlelogOut } = useContext(AuthContext);
-
+  const { handlelogOut } = useContext(AuthContext);
+  function getSignedUserFromLocal() {
+    return JSON.parse(localStorage.getItem("signedUser"))
+      ? JSON.parse(localStorage.getItem("signedUser"))
+      : {};
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3">
@@ -27,18 +31,18 @@ function Navbar() {
             <div className="navbar-nav">
               <Link
                 className="nav-link fs-5 mx-1"
-                to={`/home/${signedUser.id}`}
+                to={`/home/${getSignedUserFromLocal().id}`}
               >
                 Home
               </Link>
               <Link
                 className="nav-link fs-5 mx-1"
-                to={`/sports/${signedUser.id}`}
+                to={`/sports/${getSignedUserFromLocal().id}`}
               >
                 Sports
               </Link>
             </div>
-            {Object.values(signedUser).length !== 0 && (
+            {Object.values(getSignedUserFromLocal()).length !== 0 && (
               <div className="nav-item dropdown text-light">
                 <a
                   className="nav-link"
@@ -50,10 +54,14 @@ function Navbar() {
                 </a>
                 <ul className="dropdown-menu ">
                   <li>
-                    <a className="dropdown-item">Hello,{signedUser.name}</a>
+                    <a className="dropdown-item">
+                      Hello,{getSignedUserFromLocal().name}
+                    </a>
                   </li>
                   <li>
-                    <a className="dropdown-item">Email:{signedUser.email}</a>
+                    <a className="dropdown-item">
+                      Email:{getSignedUserFromLocal().email}
+                    </a>
                   </li>
                   <Link
                     className="dropdown-item"
