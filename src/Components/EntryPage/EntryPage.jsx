@@ -51,7 +51,7 @@ const EntryPage = () => {
       );
     } else {
       handlelogin(signed[0]);
-      navigateTo(`/home/${signed[0].id}`);
+      navigateTo(`/home`);
     }
   };
   const handleSignupSubmit = (e) => {

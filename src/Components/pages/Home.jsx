@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { getNews } from "../../Services/news.service";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  let userId = useParams();
+  const userId = JSON.parse(localStorage.getItem("signedUser"));
   let [news, setNews] = useState([]);
   useEffect(() => {
     getNews()

@@ -19,11 +19,11 @@ function App() {
         <Routes>
           <Route path="/" element={<EntryPage />} />
           <Route
-            path="/home/:id"
+            path="/home"
             element={<ProtectedRoute element={<Home />} />}
           />{" "}
           <Route
-            path="/sports/:id"
+            path="/sports"
             element={<ProtectedRoute element={<Sports />} />}
           />
           <Route path="/unAuthorized" element={<UnAuthorized />} />

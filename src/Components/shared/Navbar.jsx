@@ -29,16 +29,10 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link
-                className="nav-link fs-5 mx-1"
-                to={`/home/${getSignedUserFromLocal().id}`}
-              >
+              <Link className="nav-link fs-5 mx-1" to={`/home`}>
                 Home
               </Link>
-              <Link
-                className="nav-link fs-5 mx-1"
-                to={`/sports/${getSignedUserFromLocal().id}`}
-              >
+              <Link className="nav-link fs-5 mx-1" to={`/sports`}>
                 Sports
               </Link>
             </div>

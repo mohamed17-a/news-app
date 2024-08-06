@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getSports } from "../../Services/news.service";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Sports = () => {
-  let userId = useParams();
+  let userId = JSON.parse(localStorage.getItem("signedUser"));
   let [news, setNews] = useState([]);
   useEffect(() => {
     getSports()
